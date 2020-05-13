@@ -1,94 +1,67 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, Image, Button, TouchableWithoutFeedback, AsyncStorage} from 'react-native';
-import ImageResizeMode from "react-native-web/dist/exports/Image/ImageResizeMode";
+import {Dimensions, Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import { connect } from 'react-redux';
+import {setLangPref} from "../actions";
 
 import FlagHungary from '../assets/flags/flag_hungary.png';
 import FlagGermany from '../assets/flags/flag_germany.png';
+import FlagEnglish from '../assets/flags/flag_english.png';
+import FlagSlovakian from '../assets/flags/flag_slovakia.png';
+import FlagItaly from '../assets/flags/flag_italy.png';
+import FlagRomania from '../assets/flags/flag_romania.png';
 
+import {flagStyles} from '../assets/style';
+import {navigate} from "../utils/rootNavigation";
 
 class Flag extends Component {
     constructor(props) {
         super(props);
     }
 
-    _storeData = async (key, value) => {
-        try {
-            await AsyncStorage.setItem(key, value);
-        } catch (e) {
-            console.error('Failed to save LanguagePref');
-        }
-    };
-
-    _retrieveData = async () => {
-        try {
-            const value = await AsyncStorage.getItem('LanguagePref');
-            if (value !== null) {
-                return value;
-            }
-        } catch (error) {
-            // Error retrieving data
-        }
-    };
-
     GetFlag = (flagString) => {
         switch (flagString.toLowerCase()) {
             case 'hungary':
                 return FlagHungary;
-
             case 'germany':
                 return FlagGermany;
+            case 'english':
+                return FlagEnglish;
+            case 'slovakia':
+                return FlagSlovakian;
+            case 'romania':
+                return FlagRomania;
+            case 'italy':
+                return FlagItaly;
 
         }
     };
 
     OnFlagPress = (flagString) => {
         //console.warn(flagString);
-        console.warn("pressed: " + this._storeData('LanguagePref', flagString.toLowerCase()));
-    };
+        this.props.setLangPref(flagString.toLowerCase());
+        navigate('Home');
 
-    componentDidMount() {
-        console.warn(this._retrieveData());
-    }
+    };
 
     render() {
         return (
-            <TouchableWithoutFeedback onPress={() => {
-                this.OnFlagPress(this.props.flag)
-            }}>
-                <View style={styles.flagWrapper}>
+            <View style={flagStyles.flagWrapper}>
+                <TouchableOpacity
+                    style={flagStyles.flagButton}
+                    onPress={() => {
+                        this.OnFlagPress(this.props.langPref)
+                    }}>
                     <Image
-                        style={styles.flagImage}
+                        style={flagStyles.flagImage}
                         source={this.GetFlag(this.props.flag)}
                     />
-                    <Text style={styles.flagText}>
-                        {this.props.flag}
+                    <Text style={flagStyles.flagText}>
+                        {this.props.text}
                     </Text>
-                </View>
-            </TouchableWithoutFeedback>
+                </TouchableOpacity>
+            </View>
         );
     }
 }
 
-const styles = StyleSheet.create({
-    flagWrapper: {
-        flex: 1,
-        height: 100,
-        width: '50%',
-        flexDirection: 'column',
-        backgroundColor: '#eee'
-    },
-    flagImage: {
-        flex: 1,
-        height: undefined,
-        width: undefined,
-        resizeMode: ImageResizeMode.contain,
-        alignContent: 'center',
-        justifyContent: 'center'
-    },
-    flagText: {
-        justifyContent: 'center',
-        textAlign: 'center'
-    }
-});
-
-export default Flag;
+export default connect(null, {setLangPref})(Flag);
