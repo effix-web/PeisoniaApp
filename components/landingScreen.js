@@ -15,8 +15,10 @@ import {getTranslation} from "../translations/translations";
 import {styles} from "../assets/style";
 import Sight from "./sight";
 import HomeScreen from "./homeScreen";
+import {Ionicons} from "@expo/vector-icons";
 
 const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
 
 /*<Button
     title={this.getSettingsText()}
@@ -40,27 +42,53 @@ class LandingScreen extends Component {
     };
 
     render() {
-        //console.warn(this.props.languageState);
         return (
             <NavigationContainer ref={navigationRef}>
-                <Tab.Navigator
-                    initialRouteName={"Home"}
-                >
-                    <Tab.Screen
-                        name="Home"
-                        component={HomeScreen}
-                        options={{
-                            title: getTranslation('homeTitle')
-                        }}
-                    />
-                    <Tab.Screen
-                        name="Settings"
-                        component={Settings}
-                        options={{
-                            title: getTranslation('settings')
-                        }}
-                    />
-                </Tab.Navigator>
+                {
+                    (this.props.language !== null) ?
+                        <Tab.Navigator
+                            initialRouteName={"Home"}
+                            screenOptions={({ route }) => ({
+                                tabBarIcon: ({ focused, color, size }) => {
+                                    let iconName;
+
+                                    if (route.name === 'Home') {
+                                        iconName = focused
+                                            ? 'ios-list-box'
+                                            : 'ios-list';
+                                    } else if (route.name === 'Settings') {
+                                        iconName = 'ios-settings';
+                                    } else if(route.name === 'Onboarding') {
+                                        size = 0
+                                    }
+
+                                    // You can return any component that you like here!
+                                    return <Ionicons name={iconName} size={size} color={color} />;
+                                },
+                            })}
+                        >
+                            <Tab.Screen
+                                name="Home"
+                                component={HomeScreen}
+                                options={{
+                                    title: getTranslation('homeTitle'),
+                                }}
+                            />
+                            <Tab.Screen
+                                name="Settings"
+                                component={Settings}
+                                options={{
+                                    title: getTranslation('settings')
+                                }}
+                            />
+                        </Tab.Navigator>
+                        :
+                        <Stack.Navigator initialRouteName={'Onboarding'}>
+                            <Stack.Screen name="Onboarding" component={Onboarding} options={{headerShown: false}}/>
+                        </Stack.Navigator>
+                }
+
+
             </NavigationContainer>
         );
     }

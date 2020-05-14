@@ -47,6 +47,48 @@ export let styles = StyleSheet.create({
     },
     sectionTitle: {
         backgroundColor: "#fff"
+    },
+    modalStyle: {
+        backgroundColor: 'transparent',
+        height: 100,
+        marginLeft: 0,
+        marginRight: 0,
+        marginBottom: 0,
+        justifyContent: 'flex-end'
+    },
+    modalContent: {
+        height: 'auto',
+        backgroundColor: '#fff'
+    },
+    languageSelectButton: {
+        flexDirection: 'row',
+        width: '100%',
+        backgroundColor: '#fff',
+        justifyContent: 'center',
+        alignItems: 'center',
+        alignContent: 'center',
+        paddingTop: 12,
+        paddingBottom: 12,
+        borderTopColor: '#e0dfe4',
+        borderTopWidth: 1,
+        borderBottomColor: '#e0dfe4',
+        borderBottomWidth: 1
+    },
+    languageSelectButtonText: {
+        paddingLeft: 12,
+        fontSize: 17,
+        color: '#333'
+    },
+    languageSelectButtonArrow: {
+        marginRight: 12,
+        alignSelf: 'center',
+        marginTop: 2,
+        marginLeft: 5
+    },
+    languageSelectButtonCurrentLanguage: {
+        marginLeft: 'auto',
+        fontSize: 17,
+        color: '#8c8c8e'
     }
 
 });
@@ -126,7 +168,6 @@ export const sightStyles = StyleSheet.create({
         justifyContent: 'flex-end',
     },
     sightBannerImage: {
-
         height: '100%',
         width: '100%',
         left: 0,
@@ -169,21 +210,25 @@ export const attractionStyles = StyleSheet.create({
         marginLeft: 10,
         marginRight: 10,
         marginTop: 10,
-        paddingBottom: 5,
         borderBottomWidth: 0.5,
         borderBottomColor: '#333',
-        maxHeight: 45,
+        //maxHeight: 45,
+        height: 'auto',
+        overflow: 'hidden',
+        //height: '100%'
+    },
+    attractionContentWrapper: {
+        height: 0,
         overflow: 'hidden'
     },
     attractionOpen: {
-        height: '100%',
-        maxHeight: 200
+        height: 200,
     },
     attractionTitle: {
-        fontSize: 32,
-        color: '#333',
-        fontWeight: "500",
-        paddingBottom: 5,
-        fontFamily: Platform.OS === 'android' ? 'sans-serif-medium' : 'System',
-    }
+        fontSize: 28,
+        color: "#333",
+        fontWeight: '500',
+        paddingBottom: 5
+    },
+
 });

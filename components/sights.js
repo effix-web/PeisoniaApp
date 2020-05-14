@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import {withNavigation} from "react-navigation";
 import {getTranslation} from "../translations/translations";
 import SightListItem from "./sightListItem";
-import {homeStyles, styles} from "../assets/style";
+import {homeStyles, sightListItemStyles, styles} from "../assets/style";
 import {Platform} from "react-native";
 
 
@@ -16,27 +16,25 @@ class Sights extends Component {
         this.renderHeader = this.renderHeader.bind(this);
     }
 
+    state = {
+        sights: getTranslation('sights')
+    }
+
     renderHeader = (title) => {
         return (<Text style={[styles.viewTitle, styles.sectionTitle]}>{title}</Text>)
     };
 
+    renderSights = () => {
+        let sights = getTranslation('sights');
 
-    render() {
-        return (
-            <SafeAreaView style={homeStyles.homeWrapper}>
-                <StatusBar
-                    backgroundColor={'transparent'}
-                    translucent={true}
-                    barStyle={'dark-content'}
-                />
-
-
+        if(sights) {
+            return (
                 <SectionList
-                    data={getTranslation('sights')}
+                    data={sights}
                     sections={[
                         {
                             title: getTranslation('sightsTitle'),
-                            data: getTranslation('sights')
+                            data: sights
                         }
                     ]}
                     renderItem={({item}) => (
@@ -50,6 +48,32 @@ class Sights extends Component {
                     keyExtractor={item => item.title}
                     stickySectionHeadersEnabled={true}
                 />
+            )
+        }
+
+        //In case Sights is empty which should not happen
+        return (
+            <View>
+                <Text style={styles.viewTitle}>{getTranslation('sightsTitle')}</Text>
+                <Text style={[sightListItemStyles.sightLocation, {paddingLeft: 20}]}>This shouldn't be empty</Text>
+            </View>
+
+
+        )
+    }
+
+
+    render() {
+        return (
+            <SafeAreaView style={homeStyles.homeWrapper}>
+                <StatusBar
+                    backgroundColor={'transparent'}
+                    translucent={true}
+                    barStyle={'dark-content'}
+                />
+                {this.renderSights()}
+
+
             </SafeAreaView>
         );
     }

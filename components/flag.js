@@ -39,8 +39,7 @@ class Flag extends Component {
     OnFlagPress = (flagString) => {
         //console.warn(flagString);
         this.props.setLangPref(flagString.toLowerCase());
-        navigate('Home');
-
+        //navigate('Sights');
     };
 
     render() {
