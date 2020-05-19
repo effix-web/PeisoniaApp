@@ -20,19 +20,19 @@ export const hu = {
                 {
                     title: 'Panoráma',
                     audio: require("../assets/audio/IlleniumxSaidTheSky-WheredUGo.mp3"),
-                    content: ''
+                    content: 'Fertőhomok sajátos kultúráját és hagyományait őrzi a Fertőhomoki Tájház. A település kulturális életének egyik kiemelkedő helyszíne, helyt ad hagyományőrző rendezvényeknek, falunapnak, a diófesztivál és a világörökségi nap eseményeinek is. 2003-ban kapta az “Év tájháza” elismerést. Megújult állandó kiállítása a horvát nemzetiségi kultúrát mutatja be, melléképületeiben a térségre jellemző mezőgazdasági foglalkozások eszközeit fedezhetik fel a látogatók.'
 
                 },
                 {
                     title: 'Növény- és Állatvilág',
                     audio: require("../assets/audio/Vicetone_TonyIgy-Astronomia.mp3"),
-                    content: ''
+                    content: 'A Fertőhomoki Tájház a “Fertő-táj ékkövei” projektnek köszönhetően 2020. nyarára új, állandó kiállítással, szabadtéri kemencével és nagyobb rendezvénytérrel bővül. Lefedésre kerül a meglévő színpad,  és kialakításra kerül egy új szabadtéri színpad nézőtérrel.'
 
                 },
                 {
                     title: 'Tájház',
                     audio: require("../assets/audio/GRiZ_x_Subtronics-Griztronics_ooh_this_sht_be_hittin_different.mp3"),
-                    content: ''
+                    content: 'Lorem ipsum, dolor sit amet'
 
                 },
                 {
@@ -129,40 +129,40 @@ export function getTranslation(key) {
     const state = store.getState();
     const lang = state.languageReducer.langPref;
 
-    if(lang) {
+    if (lang) {
         switch (lang) {
             case 'hu':
-                if(hu.hasOwnProperty(key)){
+                if (hu.hasOwnProperty(key)) {
                     return hu[key];
                 } else {
                     return null;
                 }
             case 'de':
-                if(de.hasOwnProperty(key)){
+                if (de.hasOwnProperty(key)) {
                     return de[key];
                 } else {
                     return null;
                 }
             case 'en':
-                if(en.hasOwnProperty(key)){
+                if (en.hasOwnProperty(key)) {
                     return en[key];
                 } else {
                     return null;
                 }
             case 'sk':
-                if(sk.hasOwnProperty(key)){
+                if (sk.hasOwnProperty(key)) {
                     return sk[key];
                 } else {
                     return null;
                 }
             case 'it':
-                if(it.hasOwnProperty(key)){
+                if (it.hasOwnProperty(key)) {
                     return it[key];
                 } else {
                     return null;
                 }
             case 'ro':
-                if(ro.hasOwnProperty(key)){
+                if (ro.hasOwnProperty(key)) {
                     return ro[key];
                 } else {
                     return null;

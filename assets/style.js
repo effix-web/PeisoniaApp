@@ -205,6 +205,39 @@ export const sightStyles = StyleSheet.create({
     }
 });
 
+export const audioPlayerStyles = StyleSheet.create({
+    playerWrapper: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginBottom: 20,
+        marginTop: 10
+    },
+    playerControls: {
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    playButton: {
+        marginLeft: 10,
+        marginRight: 10,
+        width: 48,
+        textAlign: 'center'
+    },
+    playerSlider: {
+        width: (Platform.OS === 'ios') ? (width - 40) : (width - 20),
+    },
+    playerTimeWrapper:{
+        width: '100%'
+    },
+    playerCurrentTime: {
+        marginLeft: (Platform.OS === 'ios') ? 12 : 15,
+    },
+    playerDurationTime: {
+        marginLeft: 'auto',
+        marginRight: (Platform.OS === 'ios') ? 12 : 15,
+    }
+});
+
+
 export const attractionStyles = StyleSheet.create({
     attractionWrapper: {
         marginLeft: 10,
@@ -222,7 +255,7 @@ export const attractionStyles = StyleSheet.create({
         overflow: 'hidden'
     },
     attractionOpen: {
-        height: 200,
+        height: 300,
     },
     attractionTitle: {
         fontSize: 28,
@@ -230,5 +263,20 @@ export const attractionStyles = StyleSheet.create({
         fontWeight: '500',
         paddingBottom: 5
     },
+    attractionTextWrapper: {
+        paddingLeft: 10,
+        paddingRight: 10,
+        marginBottom: 10
+    },
+    attractionText: {
+        lineHeight: 21,
+        fontSize: 18,
+        fontWeight: "300",
+        fontFamily: Platform.OS === 'android' ? 'sans-serif-light' : 'System',
+    },
+    arrow: {
+        marginLeft: 'auto',
+        alignSelf: 'center'
+    }
 
 });
