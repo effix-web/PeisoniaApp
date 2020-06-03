@@ -1,11 +1,9 @@
 import React, {Component} from 'react';
-import {SafeAreaView, View, Text, FlatList, StatusBar, Button} from "react-native";
+import {ScrollView, View, Text, FlatList, StatusBar, Clipboard, Alert} from "react-native";
 import {Image} from 'react-native-elements';
-import {navigationRef, navigate} from "../utils/rootNavigation";
 import {withNavigation} from "react-navigation";
 import {connect} from 'react-redux';
 import * as Linking from 'expo-linking';
-import { Audio } from 'expo-av';
 
 import {getTranslation} from "../translations/translations";
 import {sightStyles, styles} from "../assets/style";
@@ -19,10 +17,26 @@ class Sight extends Component {
     state = this.props.sight;
 
 
+    onCoordinatesPress = async (coordinate) => {
+        await Clipboard.setString(coordinate);
+        Alert.alert(
+            getTranslation('alertTitle'),
+            getTranslation('alertText')
+        )
+    };
+
+    renderAttractions = () => {
+        if(this.state.attractions) {
+            return this.state.attractions.map((item) => {
+                return (<Attraction data={item} key={item.title}/>)
+            });
+        }
+
+    }
 
     render() {
         return (
-            <View style={sightStyles.sightWrapper} forceInset={{top: 'never'}}>
+            <ScrollView style={[sightStyles.sightWrapper]} forceInset={{top: 'never'}}>
                 <StatusBar
                     backgroundColor={'transparent'}
                     translucent={true}
@@ -36,24 +50,28 @@ class Sight extends Component {
                         <View style={styles.row}>
                             <Text
                                 style={[sightStyles.sightSubTitle, sightStyles.sightLink, {paddingRight: 5}]}
-                                onPress={() => {Linking.openURL(this.state.mapLink)}}
+                                onPress={() => {
+                                    Linking.openURL(this.state.mapLink)
+                                }}
                             >{getTranslation('sightMapLinkText')}</Text>
-                            <Text style={[sightStyles.sightSubTitle, {paddingRight: 0, paddingLeft: 0}]} > - </Text>
-                            <Text style={[sightStyles.sightSubTitle, {paddingLeft: 5}]}>{this.state.coordinates}</Text>
+                            <Text style={[sightStyles.sightSubTitle, {paddingRight: 0, paddingLeft: 0}]}> - </Text>
+                            <Text style={[sightStyles.sightSubTitle, {paddingLeft: 5}]}
+                                  onPress={() => {
+                                      this.onCoordinatesPress(this.state.coordinates)
+                                  }}
+                            >
+                                {this.state.coordinates}
+                            </Text>
                         </View>
                     </View>
                 </View>
-                <FlatList
+                {this.renderAttractions()}
+                {/*<FlatList
                     data={this.state.attractions}
                     renderItem={({ item }) => <Attraction data={item} />}
                     keyExtractor={item => item.title}
-                />
-                {/*<Button
-                    title={"Play"}
-                    onPress={() => {this.playAudio(this.state.attractions[0].audio)}}
                 />*/}
-
-            </View>
+            </ScrollView>
         );
     }
 }

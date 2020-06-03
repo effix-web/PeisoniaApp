@@ -56,8 +56,14 @@ class LandingScreen extends Component {
                                         iconName = focused
                                             ? 'ios-list-box'
                                             : 'ios-list';
+                                        color = focused
+                                            ? '#76c1b1'
+                                            : color
                                     } else if (route.name === 'Settings') {
                                         iconName = 'ios-settings';
+                                        color = focused
+                                            ? '#76c1b1'
+                                            : color
                                     } else if(route.name === 'Onboarding') {
                                         size = 0
                                     }
@@ -66,6 +72,9 @@ class LandingScreen extends Component {
                                     return <Ionicons name={iconName} size={size} color={color} />;
                                 },
                             })}
+                            tabBarOptions={{
+                                activeTintColor: '#76c1b1'
+                            }}
                         >
                             <Tab.Screen
                                 name="Home"

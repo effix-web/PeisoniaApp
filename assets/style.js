@@ -23,7 +23,8 @@ export let styles = StyleSheet.create({
         textAlign: 'center',
         fontWeight: 'bold',
         fontSize: 40,
-        color: '#333333',
+        //color: '#333333',
+        color: '#76c1b1',
         marginTop: (height * 0.10),
         marginBottom: 30
     },
@@ -34,10 +35,12 @@ export let styles = StyleSheet.create({
         justifyContent: 'center',
     },
     viewTitle: {
-        fontSize: 48,
+        fontSize: width > 400 ? 48 : 42,
         fontWeight: 'bold',
         padding: 20,
-        color: "#333",
+        //color: "#333",
+        color: "#76c1b1",
+        textTransform: 'uppercase',
         paddingBottom: Platform.OS === 'android' ? 15 : 20,
         paddingTop: Platform.OS === 'android' ? 30 : 20
     },
@@ -152,7 +155,7 @@ export const sightListItemStyles = StyleSheet.create({
         fontWeight: '200',
         fontFamily: Platform.OS === 'android' ? 'sans-serif-light' : 'System',
         letterSpacing: 0.5,
-        color: "#333"
+        color: "#333",
     }
 });
 
@@ -251,32 +254,36 @@ export const attractionStyles = StyleSheet.create({
         //height: '100%'
     },
     attractionContentWrapper: {
-        height: 0,
+        maxHeight: 0,
         overflow: 'hidden'
     },
     attractionOpen: {
-        height: 300,
+        maxHeight: '100%',
     },
     attractionTitle: {
         fontSize: 28,
         color: "#333",
-        fontWeight: '500',
+        fontWeight: '400',
         paddingBottom: 5
     },
     attractionTextWrapper: {
         paddingLeft: 10,
         paddingRight: 10,
-        marginBottom: 10
+        marginBottom: 15
     },
     attractionText: {
+        paddingLeft: 10,
+        paddingRight: 10,
+        marginBottom: 15,
         lineHeight: 21,
-        fontSize: 18,
+        fontSize: 16,
         fontWeight: "300",
         fontFamily: Platform.OS === 'android' ? 'sans-serif-light' : 'System',
     },
     arrow: {
         marginLeft: 'auto',
-        alignSelf: 'center'
+        alignSelf: 'center',
+        color: '#9e9e9e'
     }
 
 });

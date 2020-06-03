@@ -33,9 +33,13 @@ class Attraction extends Component {
                         <Ionicons
                             style={[attractionStyles.arrow,
                                 (this.state.isOpen) ?
-                                    {transform: [{rotate: '180deg'}]}
-                                : ''
+                                    {
+                                        transform: [{rotate: '180deg'}],
+                                        color: '#444'
+                                    }
+                                    : ''
                             ]}
+                            pointerEvents={'none'}
                             name={'ios-arrow-down'}
                             size={24}
                             color={'#444'}
@@ -47,9 +51,9 @@ class Attraction extends Component {
                     <AudioPlayer
                         source={this.state.attraction.audio}
                     />
-                    <ScrollView style={attractionStyles.attractionTextWrapper}>
-                        <Text style={attractionStyles.attractionText}>{this.state.attraction.content}</Text>
-                    </ScrollView>
+
+                    <Text style={attractionStyles.attractionText}>{this.state.attraction.content}</Text>
+
 
                 </View>
 

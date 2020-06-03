@@ -41,8 +41,14 @@ function HomeScreen(props) {
                 name={"Sight"}
                 component={Sight}
                 options={{
-                    title: getTranslation('sightsTitle'),
-                    headerShown: false,
+                    title: '',
+                    headerShown: true,
+                    headerBackTitle: getTranslation('sightsTitle'),
+                    headerTransparent: true,
+                    headerTintColor: '#fff',
+                    headerStyle: {
+                        //backgroundColor: 'transparent'
+                    }
                 }}
             />
         </Stack.Navigator>

@@ -46,7 +46,7 @@ class Sights extends Component {
                         this.renderHeader(title)
                     )}
                     keyExtractor={item => item.title}
-                    stickySectionHeadersEnabled={true}
+                    stickySectionHeadersEnabled={false}
                 />
             )
         }
@@ -68,7 +68,6 @@ class Sights extends Component {
             <SafeAreaView style={homeStyles.homeWrapper}>
                 <StatusBar
                     backgroundColor={'transparent'}
-                    translucent={true}
                     barStyle={'dark-content'}
                 />
                 {this.renderSights()}
