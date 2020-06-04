@@ -48,9 +48,15 @@ class Attraction extends Component {
                 </TouchableOpacity>
                 <View
                     style={[attractionStyles.attractionContentWrapper, (this.state.isOpen) ? attractionStyles.attractionOpen : null]}>
-                    <AudioPlayer
-                        source={this.state.attraction.audio}
-                    />
+
+                    {
+                        this.state.attraction.audio
+                            ? <AudioPlayer
+                                source={this.state.attraction.audio}
+                            />
+                            : null
+                    }
+
 
                     <Text style={attractionStyles.attractionText}>{this.state.attraction.content}</Text>
 

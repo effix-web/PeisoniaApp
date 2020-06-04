@@ -47,6 +47,42 @@ export const hu = {
             address: '9493 Fertőboz',
             mapLink: 'https://www.google.com/maps/place/Fert%C5%91bozi+gloriett+kil%C3%A1t%C3%B3/@47.6360085,16.6938836,17z/data=!4m5!3m4!1s0x476c19fcf7031f4f:0xf6b5109929837988!8m2!3d47.6360085!4d16.6960723',
             coordinates: '47.636131, 16.696083',
+            attractions: [
+                {
+                    title: "Fertőboz felvezető ösvény • kitelepítettek emlékműve",
+                    audio: null,
+                    content: 'Megérkeztünk Fertőbozra, melynek magyar és német neve - egyes vélemények szerint - a bodza szóra utal. Mintegy 300 lakosával a magyar Fertő part legkisebb települése. Környéke ősidőktől fogva lakott, bővelkedik bronzkori és a római kori régészeti leletekben. A termékeny talaj, a források, és a tó közelsége ideális lehetőséget nyújtott a letelepedéshez. Az itt élők évszázadok óta a Fertő és a vidék természeti kincseiből éltek, az állattenyésztés, a szőlő- és zöldségtermesztés mellett a halászatból és a nádfeldolgozásból. \n' +
+                        'Széchenyi István 1839-ben fürdőt építtetett a településen, amelyre a tó vizének jelentős megemelkedése adott lehetőséget. A fürdővendégek főleg Sopronból érkeztek. A több évtizeden át tartó aktív fürdőéletnek a tó kiszáradása vetett véget.\n' +
+                        'A település második világháború utáni történelmének különösen szomorú éve volt 1946, amikor a németajkú lakosságot kitelepítették. Ennek állít emléket a Glorietthez vezető ösvény alján található emlékmű. A kitelepítés igazságtalanságát súlyosbította, hogy Fertőboz lakossága az 1921-es soproni népszavazás alkalmával a magyar hazához való hűségét bizonyította.\n' +
+                        'Most pedig induljunk el a lépcsőkön felfelé. 330 lépcső vár ránk, míg megpillanthatjuk a Gloriettet.\n'
+                },
+                {
+                    title: 'Gloriett • panoráma',
+                    audio: null,
+                    content: 'A Fertő-táj csodálatos panorámáját kevés helyről lehet megcsodálni. A tó melléke inkább sík vidék. ' +
+                        'Hidegségtől a Ruszti dombságig emelkednek csak olyan helyek, ahonnét kitárulkozik a látogató előtt. A Gloriett előtt megnyílik a Fertő-táj. ' +
+                        'Alant hullámzik a sárgás, zöldes nádövezet, számtalan védett madárfaj fészkelőhelye. ' +
+                        'Jól kivehetők benne a csatornák melyeket egykor a nádvágók és halászok használtak, ma pedig az egészséges friss vízáramlás fontos útjai. ' +
+                        'Távolabb szürkésen, kékesen látszik a sztyepptó vize, melynek igazi különlegessége a magas ásványi anyag és sótartalom. A tó sok védett hal- és egyéb állatfaj otthona. ' +
+                        'Mivel szélcsatornában fekszik, jellemző a gyakori erős észak-nyugati szél. Igazi vitorlás sportparadicsom. ' +
+                        'Balról a tómedencét a soproni borvidék szőlőskertjei határolják, jobbról pedig a kisalföldi puszták. ' +
+                        'A horizontot tiszta időben a Kis-Kárpátok hegyei szegélyezik és a pándorfalui szélkerekek. ' +
+                        'A Fertő-Hanság Nemzeti Park bioszféra rezervátum, Ramsari-terület és 2011. óta UNESCO világörökség.'
+                },
+                {
+                    title: 'Gloriett',
+                    audio: null,
+                    content: 'A gloriette francia nyelven „kerti házikót” jelent, főként franciakertek vagy angolparkok eleme. ' +
+                        'A fertőbozi „kis ház”, eltérően a kor hasonló építményeitől nem kastély kertben létesült, hanem egy kiemelkedő kilátóhelyen. ' +
+                        'Nemcsak a hely kiemelkedő, hanem az építéshez kötődő személyiségek is: gróf Széchényi Ferenc és József nádor. ' +
+                        'A napóleoni háborúk eseményei Sopronban is éreztették hatásukat. 1800. októberében a városba érkezett a hadsereg ' +
+                        'fővezére, József nádor, aki több ízben felkereste Kiscenk és Fertőboz szép vidékét gróf Széchényi Ferenc kíséretében. ' +
+                        'A gróf a látogatások emlékére építtette a Gloriettet, a Fertőboz fölötti magaslaton 1802-ben. ' +
+                        'A Fertő vízállása akkoriban igen magas volt. A feljegyzések 1797-ben nagy áradást is említenek. Így valóban gyönyörű tájkép nyílhatott erről a helyről. \n' +
+                        'A Gloriett mellett lévő információs táblákon a Gloriettről és környezetének élővilágával ismerkedhetünk.'
+
+                }
+            ]
 
         },
         {
