@@ -10,6 +10,14 @@ export const hu = {
     languagePickerText: 'Nyelv',
     alertTitle: 'Értesítés',
     alertText: 'Kimásolva a vágólaplra!',
+    projectInfo: 'Kedvezményezett neve: Fertő-táj Világörökség Magyar Tanácsa Egyesület\n' +
+        'Projekt címe: Fertő-táj ékkövei\n' +
+        'Projektazonosító: GINOP-7.1.6-16-2017-00003\n' +
+        'A projekt kezdete: 2017. december 01.\n' +
+        'A projekt fizikai befejezésének tervezett napja: 2020.01.29.\n' +
+        'A projekt elszámolható bruttó összköltsége: 406.000.000 Ft\n' +
+        'A megítélt támogatás összege: 406.000.000 Ft\n' +
+        'A támogatás intenzitása: 100 %',
     sights: [
         {
             title: 'Fertőhomoki Tájház',

@@ -287,3 +287,15 @@ export const attractionStyles = StyleSheet.create({
     }
 
 });
+
+export const footerStyle = StyleSheet.create({
+    footerWrapper: {
+        marginTop: 50,
+        padding: 20,
+        backgroundColor: '#0095a3'
+    },
+    footerText: {
+        color: '#fff',
+        lineHeight: 20
+    }
+});

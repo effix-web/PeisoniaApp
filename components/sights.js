@@ -7,6 +7,7 @@ import {getTranslation} from "../translations/translations";
 import SightListItem from "./sightListItem";
 import {homeStyles, sightListItemStyles, styles} from "../assets/style";
 import {Platform} from "react-native";
+import Footer from './footer';
 
 
 class Sights extends Component {
@@ -28,7 +29,7 @@ class Sights extends Component {
         let sights = getTranslation('sights');
 
         if(sights) {
-            return (
+            /*return (
                 <SectionList
                     data={sights}
                     sections={[
@@ -48,6 +49,15 @@ class Sights extends Component {
                     keyExtractor={item => item.title}
                     stickySectionHeadersEnabled={false}
                 />
+            )*/
+            return (
+                sights.map((sight) => {
+                    return (<SightListItem
+                            key={sight.title}
+                            sight={sight}
+                        />
+                    )
+                })
             )
         }
 
@@ -57,8 +67,6 @@ class Sights extends Component {
                 <Text style={styles.viewTitle}>{getTranslation('sightsTitle')}</Text>
                 <Text style={[sightListItemStyles.sightLocation, {paddingLeft: 20}]}>This shouldn't be empty</Text>
             </View>
-
-
         )
     }
 
@@ -66,13 +74,15 @@ class Sights extends Component {
     render() {
         return (
             <SafeAreaView style={homeStyles.homeWrapper}>
-                <StatusBar
-                    backgroundColor={'transparent'}
-                    barStyle={'dark-content'}
-                />
-                {this.renderSights()}
-
-
+                <ScrollView>
+                    <StatusBar
+                        backgroundColor={'transparent'}
+                        barStyle={'dark-content'}
+                    />
+                    {this.renderHeader(getTranslation('sightsTitle'))}
+                    {this.renderSights()}
+                    <Footer/>
+                </ScrollView>
             </SafeAreaView>
         );
     }
